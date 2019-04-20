@@ -1,11 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_sortList_thumbnail"
+            android:layout_width="104dp"
+            android:layout_height="100dp" />
+
+        <TextView
+            android:id="@+id/tv_sortList_brand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:textColor="#cbcbcb"
+            android:fontFamily="@font/product_sans_regular"
+            android:ellipsize="end"
+            android:layout_marginTop="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_sortList_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:textColor="#696969"
+            android:fontFamily="@font/product_sans_regular"
+            android:ellipsize="end"
+            android:layout_marginTop="1dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_sortList_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:textColor="#454545"
+            android:fontFamily="@font/product_sans_regular"
+            android:ellipsize="end"
+            android:layout_marginTop="2dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <View
+            android:id="@+id/div_sortList"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#3ecbcbcb"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_sortList_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_sortList_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/tv_sortList_favorite" />
+
+            <TextView
+                android:id="@+id/tv_sortList_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:textSize="8sp"
+                android:textColor="#a0a0a0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/cb_sortList_favorite"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
