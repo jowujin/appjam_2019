@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.sk.appjam_2019.util.TokenManager;
 import com.sk.appjam_2019.view.AuthActivity;
 import com.sk.appjam_2019.view.ClothesFragment;
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        if (TokenManager.getInstance().getToken(getApplicationContext()).equals("none")) {
+            startActivity(new Intent(getApplicationContext(), AuthActivity.class));
+        }
         initView();
     }
 

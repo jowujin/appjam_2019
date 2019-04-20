@@ -42,11 +42,11 @@ public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.View
         Product product = list_product.get(position);
 
         Glide.with(context)
-                .load(product.getThumbnail_url())
+                .load(product.getImg())
                 .into(holder.iv_sortList_thumbnail);
 
-        holder.tv_sortList_brand.setText(product.getBrand());
-        holder.tv_sortList_name.setText(product.getName());
+        holder.tv_sortList_brand.setText(product.getCompany());
+        holder.tv_sortList_name.setText(product.getTitle());
         holder.tv_sortList_price.setText(product.getPrice());
 
         holder.cb_sortList_favorite.setOnCheckedChangeListener((buttonView, isChecked) -> {

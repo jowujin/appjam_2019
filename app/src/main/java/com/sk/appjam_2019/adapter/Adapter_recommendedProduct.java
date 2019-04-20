@@ -44,12 +44,12 @@ public class Adapter_recommendedProduct extends RecyclerView.Adapter<Adapter_rec
         Product product = list_products.get(position);
 
         Glide.with(context)
-                .load(product.getThumbnail_url())
+                .load(product.getImg())
                 .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(CommonUtil.DpToPx(context, 4)))) // change Dp to Px
                 .into(holder.iv_recommendedProduct_thumbnail);
 
-        holder.tv_recommendedProduct_brand.setText(product.getBrand());
-        holder.tv_recommendedProduct_name.setText(product.getName());
+        holder.tv_recommendedProduct_brand.setText(product.getCompany());
+        holder.tv_recommendedProduct_name.setText(product.getTitle());
         holder.tv_recommendedProduct_price.setText(product.getPrice());
     }
 

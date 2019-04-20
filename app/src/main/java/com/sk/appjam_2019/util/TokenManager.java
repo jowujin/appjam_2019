@@ -9,7 +9,7 @@ public class TokenManager {
 
     private TokenManager() { }
 
-    public TokenManager getInstance() {
+    public static TokenManager getInstance() {
         if (instance == null) {
             return new TokenManager();
         }

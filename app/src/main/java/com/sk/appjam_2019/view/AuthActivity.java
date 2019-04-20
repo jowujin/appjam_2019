@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -19,6 +20,7 @@ import com.google.gson.JsonParser;
 import com.sk.appjam_2019.R;
 import com.sk.appjam_2019.network.RetrofitClient;
 import com.sk.appjam_2019.network.RetrofitService;
+import com.sk.appjam_2019.util.TokenManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,7 +99,14 @@ public class AuthActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                if (response.isSuccessful()) {
+                    JsonElement element = new JsonParser().parse(response.body().toString())
+                            .getAsJsonObject().get("token");
 
+                    Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+                    TokenManager.getInstance().saveToken(getApplicationContext(), element.getAsString());
+                    finish();
+                }
             }
 
             @Override
@@ -113,9 +122,15 @@ public class AuthActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                JsonElement element = new JsonParser().parse(response.body().toString())
-                        .getAsJsonObject().get("token");
-                Log.d("SignIn_Token", "onResponse: " + element);
+                if (response.isSuccessful()) {
+                    JsonElement element = new JsonParser().parse(response.body().toString())
+                            .getAsJsonObject().get("token");
+                    Log.d("SignIn_Token", "onResponse: " + response.body().toString());
+
+                    Toast.makeText(getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+                    TokenManager.getInstance().saveToken(getApplicationContext(), element.getAsString());
+                    finish();
+                }
             }
 
             @Override
