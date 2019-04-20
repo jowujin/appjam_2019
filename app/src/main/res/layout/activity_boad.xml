@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/board_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff3b70"
+        android:orientation="vertical"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_board_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="9dp"
+                android:fontFamily="@font/product_sans_regular"
+                android:gravity="center"
+                android:text="@string/title"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_board_serch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="9dp"
+                android:background="@drawable/bg_toolbar_search"
+                android:drawableStart="@drawable/ic_baseline_search"
+                android:hint="Search fashion"
+                android:paddingStart="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="9dp"
+                android:textColorHint="#7A454545"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tb_board_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/board_toolbar">
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="popular" />
+
+        <android.support.design.widget.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="recent" />
+    </android.support.design.widget.TabLayout>
+
+    <ListView
+        android:id="@+id/lv_board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tb_board_toolbar">
+
+    </ListView>
+
+
+        <android.support.design.widget.FloatingActionButton
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/fab_board"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="304dp"
+            android:layout_marginTop="550dp"
+            android:src="@drawable/ic_baseline_edit_24_px" />
+
+
+</android.support.constraint.ConstraintLayout>
