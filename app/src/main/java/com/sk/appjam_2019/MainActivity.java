@@ -104,6 +104,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        bottom_navigation.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.nav_1:
+                        break;
+                    case R.id.nav_2:
+                        break;
+                    case R.id.nav_3:
+                        break;
+                    case R.id.nav_4:
+                        break;
+                }
+            }
+        });
     }
 }
