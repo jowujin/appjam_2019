@@ -4,7 +4,7 @@
     <item
         android:icon="@mipmap/ic_launcher"
         android:title="@string/fashion"
-        android:id="nav_1"
+        android:id="@+id/nav_1"
          />
     <item
         android:icon="@mipmap/ic_launcher"

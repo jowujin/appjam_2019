@@ -4,7 +4,8 @@
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="ID">ID</string>
-    <string name="PW">PW</string>
+    <string name="PW">Password</string>
+    <string name="Nick">Nickname</string>
     <string name="login">Login</string>
     <string name="fashion">fashion</string>
     <string name="board">board</string>

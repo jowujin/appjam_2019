@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="bg_auth_button">#ff3b70</color>
+    <color name="auth_edittext">#cbcbcb</color>
+
+    <color name="auth_textview_focus">#ff3b70</color>
+    <color name="auth_textview_unfocus">#696969</color>
 </resources>
