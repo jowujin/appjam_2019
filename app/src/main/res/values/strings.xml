@@ -10,13 +10,13 @@
     <string name="closet">closet</string>
     <string name="mypage">mypage</string>
     <string name="title">title</string>
-    <string name="age">연령</string>
-    <string name="year">연도</string>
+    <string name="age">Age</string>
+    <string name="year">Year</string>
     <string name="dialog_year">By age</string>
     <string name="okay">Done</string>
-    <string name="serch">검색</string>
-    <string name="hotserch">인기검색어</string>
-    <string name="latelyserch">최근검색어</string>
+    <string name="serch">serch</string>
+    <string name="hotserch">Popular</string>
+    <string name="latelyserch">Recent</string>
     <string name="cancle">Cancle</string>
 
 

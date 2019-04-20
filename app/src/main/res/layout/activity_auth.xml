@@ -76,7 +76,7 @@
         android:id="@+id/et_auth_inputNick"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="@string/Nick"
+        android:hint="Nick"
         style="@style/auth_edittext"
         android:visibility="invisible"
         android:focusable="false"
