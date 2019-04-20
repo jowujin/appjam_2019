@@ -23,9 +23,9 @@
             android:id="@+id/tv_serch_cancle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="30dp"
             android:text="@string/cancle"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
@@ -53,25 +53,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tl_serch_tablayout">
 
-        <LinearLayout
+        <android.support.v4.view.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="200dp"></LinearLayout>
+            android:layout_height="match_parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp"></LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="130dp"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="85dp"></LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="85dp"></LinearLayout>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

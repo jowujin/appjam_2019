@@ -1,11 +1,9 @@
 <resources>
     <string name="app_name">Appjam_2019</string>
-
     <string name="signIn">Sign In</string>
     <string name="signUp">Sign Up</string>
     <string name="ID">ID</string>
-    <string name="PW">Password</string>
-    <string name="Nick">Nickname</string>
+    <string name="PW">PW</string>
     <string name="login">Login</string>
     <string name="fashion">fashion</string>
     <string name="board">board</string>
@@ -14,21 +12,20 @@
     <string name="title">title</string>
     <string name="age">연령</string>
     <string name="year">연도</string>
-    <string name="dialog_year">연도별</string>
-    <string name="okay">확인</string>
+    <string name="dialog_year">By age</string>
+    <string name="okay">Done</string>
     <string name="serch">검색</string>
-    <string name="cancle">취소</string>
     <string name="hotserch">인기검색어</string>
     <string name="latelyserch">최근검색어</string>
+    <string name="cancle">Cancle</string>
 
 
     <string-array name="list_items">
-            <item>1970</item>
-            <item>1980</item>
-            <item>1990</item>
-            <item>2000</item>
-            <item>2010</item>
-            <item>2020</item>
-            <item>2999</item>
+            <item>1960s</item>
+            <item>1970s</item>
+            <item>1980s</item>
+            <item>1990s</item>
+            <item>2000s</item>
+            <item>2010s</item>
         </string-array>
 </resources>
