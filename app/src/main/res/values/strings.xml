@@ -16,6 +16,10 @@
     <string name="dialog_year">연도별</string>
     <string name="cancle">취소</string>
     <string name="okay">확인</string>
+    <string name="serch">검색</string>
+    <string name="cancle">취소</string>
+    <string name="hotserch">인기검색어</string>
+    <string name="latelyserch">최근검색어</string>
 
 
     <string-array name="list_items">
