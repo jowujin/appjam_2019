@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -55,12 +56,13 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:id="@+id/sv_main_scrollview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
+        android:background="#f4f4f4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,7 +74,17 @@
                 android:id="@+id/cl_main_recomended"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp">
+                android:paddingTop="38dp">
+
+                <ImageView
+                    android:id="@+id/iv_main_recommended"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_clothes_star"
+
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="18dp"/>
 
                 <TextView
                     android:id="@+id/tv_main_recomended"
@@ -82,8 +94,10 @@
                     android:textSize="14sp"
                     android:textColor="#454545"
                     android:fontFamily="@font/product_sans_regular"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/iv_main_recommended"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_main_recommended"
+                    app:layout_constraintLeft_toRightOf="@+id/iv_main_recommended"
+                    android:layout_marginStart="18dp"/>
 
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_clothes_recommendedProduct"
@@ -103,7 +117,8 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/cl_main_sortproduct"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp">
 
                 <android.support.design.widget.TabLayout
                     android:id="@+id/tl_main_tablayout"
@@ -111,7 +126,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tabIndicatorHeight="0dp">
 
                     <android.support.design.widget.TabItem
                         android:id="@+id/ti_main_age"
@@ -132,12 +148,16 @@
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tl_main_tablayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/tl_main_tablayout"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:paddingTop="6dp"
+                    android:clipToPadding="false"/>
             </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
 
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.constraint.ConstraintLayout>

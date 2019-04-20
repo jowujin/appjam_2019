@@ -7,12 +7,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.sk.appjam_2019.R;
 import com.sk.appjam_2019.network.RetrofitClient;
 import com.sk.appjam_2019.network.RetrofitService;
@@ -37,6 +40,12 @@ public class AuthActivity extends AppCompatActivity {
     EditText et_auth_inputNick;
     @BindView(R.id.tv_auth_confirm)
     TextView tv_auth_confirm;
+    @BindView(R.id.ll_auth_inputContainer)
+    LinearLayout ll_auth_inputContainer;
+    @BindView(R.id.et_auth_inputAddress)
+    EditText et_auth_inputAddress;
+    @BindView(R.id.et_auth_inputBirthDay)
+    EditText et_auth_inputBirthDay;
 
     Typeface sans_bold;
     Typeface sans_regular;
@@ -59,7 +68,7 @@ public class AuthActivity extends AppCompatActivity {
     @OnClick(R.id.tv_auth_signIn)
     void showSignIn() {
         et_auth_inputNick.setVisibility(View.INVISIBLE);
-        et_auth_inputNick.setFocusable(false);
+        ll_auth_inputContainer.setVisibility(View.GONE);
         tv_auth_confirm.setText(getString(R.string.signIn));
 
         tv_auth_signIn.setTypeface(sans_bold);
@@ -72,7 +81,7 @@ public class AuthActivity extends AppCompatActivity {
     @OnClick(R.id.tv_auth_signUp)
     void showSignUp() {
         et_auth_inputNick.setVisibility(View.VISIBLE);
-        et_auth_inputNick.setFocusable(true);
+        ll_auth_inputContainer.setVisibility(View.VISIBLE);
         tv_auth_confirm.setText(getString(R.string.signUp));
 
         tv_auth_signIn.setTypeface(sans_regular);
@@ -104,7 +113,9 @@ public class AuthActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-
+                JsonElement element = new JsonParser().parse(response.body().toString())
+                        .getAsJsonObject().get("token");
+                Log.d("SignIn_Token", "onResponse: " + element);
             }
 
             @Override
@@ -117,7 +128,14 @@ public class AuthActivity extends AppCompatActivity {
     @OnClick(R.id.tv_auth_confirm)
     void sendRequest() {
         if (tv_auth_confirm.getText().equals(getString(R.string.signUp))) {
-//            signUp();
+            if (et_auth_inputId.getText() != null && et_auth_inputPw.getText() != null
+                    && et_auth_inputNick.getText() != null && et_auth_inputAddress.getText() != null
+                    && et_auth_inputBirthDay.getText() != null) {
+
+                signUp(et_auth_inputId.getText().toString(), et_auth_inputPw.getText().toString(),
+                        et_auth_inputNick.getText().toString(), et_auth_inputAddress.getText().toString(),
+                        et_auth_inputBirthDay.getText().toString());
+            }
         } else {
             if (et_auth_inputId.getText() != null && et_auth_inputPw.getText() != null) {
                 login(et_auth_inputId.getText().toString(), et_auth_inputPw.getText().toString());

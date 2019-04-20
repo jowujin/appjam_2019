@@ -3,6 +3,7 @@ package com.sk.appjam_2019.view;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.sk.appjam_2019.R;
 import com.sk.appjam_2019.adapter.Adapter_recommendedProduct;
@@ -24,6 +26,8 @@ public class ClothesFragment extends Fragment {
     RecyclerView rv_clothes_recommendedProduct;
     @BindView(R.id.rv_main_grid)
     RecyclerView rv_main_grid;
+    @BindView(R.id.tl_main_tablayout)
+    TabLayout tl_main_tablayout;
 
     Adapter_recommendedProduct adapter_recommendedProduct;
     Adapter_sortList adapter_sortList;
@@ -46,8 +50,10 @@ public class ClothesFragment extends Fragment {
 
         for (int i = 0; i < 10; i++) {
             adapter_recommendedProduct.addItem(new Product("https://image.musinsa.com/images/goods_img/20160912/410572/410572_2_500.jpg", "asdf", "asdf", "asdf"));
+            adapter_sortList.addItem(new Product("https://image.musinsa.com/images/goods_img/20160912/410572/410572_2_500.jpg", "asdf", "asdf", "asdf"));
         }
         adapter_recommendedProduct.notifyAdapter();
+        adapter_sortList.notifyAdapter();
 
         return view;
     }
@@ -55,7 +61,18 @@ public class ClothesFragment extends Fragment {
     private void initView() {
 
         initRecommendedProduct();
+        initTabLayout();
         initSortList();
+    }
+
+    private void initTabLayout() {
+        tl_main_tablayout.getTabAt(0).setCustomView(R.layout.layout_clothes_tab).setText("By Age");
+        TextView tab_one = tl_main_tablayout.getTabAt(0).getCustomView().findViewById(R.id.text);
+        tab_one.setText("By Age");
+
+        tl_main_tablayout.getTabAt(1).setCustomView(R.layout.layout_clothes_tab).setText("By Year");
+        TextView tab_two = tl_main_tablayout.getTabAt(1).getCustomView().findViewById(R.id.text);
+        tab_two.setText("By Year");
     }
 
     private void initRecommendedProduct() {

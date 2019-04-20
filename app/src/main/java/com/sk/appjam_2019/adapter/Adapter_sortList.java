@@ -1,6 +1,7 @@
 package com.sk.appjam_2019.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +48,18 @@ public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.View
         holder.tv_sortList_brand.setText(product.getBrand());
         holder.tv_sortList_name.setText(product.getName());
         holder.tv_sortList_price.setText(product.getPrice());
+
+        holder.cb_sortList_favorite.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                holder.tv_sortList_favorite.setTextColor(Color.parseColor("#ff3b70"));
+            } else {
+                holder.tv_sortList_favorite.setTextColor(Color.parseColor("#a0a0a0"));
+            }
+        });
+
+        holder.cl_sortList_favorite.setOnClickListener(v -> {
+            holder.cb_sortList_favorite.performClick();
+        });
     }
 
     @Override
@@ -91,7 +105,7 @@ public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 }
