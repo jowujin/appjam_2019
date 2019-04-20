@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/fashion"
+        android:id="nav_1"
+         />
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/board"
+        android:id="@+id/nav_2"
+        />
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/closet"
+        android:id="@+id/nav_3"/>
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/mypage"
+        android:id="@+id/nav_4"
+        />
+</menu>
