@@ -27,8 +27,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Title"
-                android:textSize="30dp" />
+                android:text="@string/title"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/et_main_serch"
@@ -55,20 +55,26 @@
             android:weightSum="2">
 
             <android.support.constraint.ConstraintLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:id="@+id/cl_main_recimended"
-                ></android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
                 android:layout_width="0dp"
-                android:id="@+id/cl_main_sortproduct"
                 android:layout_height="wrap_content">
 
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_main_sortproduct"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
-
 
 
     </ScrollView>
