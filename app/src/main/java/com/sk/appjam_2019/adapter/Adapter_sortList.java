@@ -1,5 +1,6 @@
 package com.sk.appjam_2019.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,29 +14,29 @@ import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 
-public class adapter_recommendedProduct extends RecyclerView.Adapter<adapter_recommendedProduct.ViewHolder> implements BaseAdapter.View, BaseAdapter.Model<Product> {
-    private ArrayList<Product> list_products;
+public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.ViewHolder> implements BaseAdapter.View, BaseAdapter.Model<Product> {
+    private Context context;
+    private ArrayList<Product> list_product = new ArrayList<>();
 
-    public adapter_recommendedProduct() {
-
+    public Adapter_sortList() {
     }
 
     @NonNull
     @Override
-    public adapter_recommendedProduct.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recommendedproduct, viewGroup, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        context = viewGroup.getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.item_sort_list, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull adapter_recommendedProduct.ViewHolder viewHolder, int i) {
-        Product product = list_products.get(i);
-
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+        Product product = list_product.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return list_products.size();
+        return list_product.size();
     }
 
     @Override
@@ -45,24 +46,24 @@ public class adapter_recommendedProduct extends RecyclerView.Adapter<adapter_rec
 
     @Override
     public void addItem(Product model) {
-
+        list_product.add(model);
     }
 
     @Override
     public Product getItem(int position) {
-        return list_products.get(position);
+        return list_product.get(position);
     }
 
     @Override
     public void clear() {
-        list_products.clear();
+        list_product.clear();
     }
 
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            ButterKnife.bind(itemView);
         }
     }
 }
