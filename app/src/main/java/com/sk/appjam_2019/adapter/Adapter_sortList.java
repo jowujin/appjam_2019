@@ -2,16 +2,22 @@ package com.sk.appjam_2019.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.sk.appjam_2019.R;
 import com.sk.appjam_2019.model.Product;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.ViewHolder> implements BaseAdapter.View, BaseAdapter.Model<Product> {
@@ -30,8 +36,16 @@ public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Product product = list_product.get(position);
+
+        Glide.with(context)
+                .load(product.getThumbnail_url())
+                .into(holder.iv_sortList_thumbnail);
+
+        holder.tv_sortList_brand.setText(product.getBrand());
+        holder.tv_sortList_name.setText(product.getName());
+        holder.tv_sortList_price.setText(product.getPrice());
     }
 
     @Override
@@ -60,6 +74,20 @@ public class Adapter_sortList extends RecyclerView.Adapter<Adapter_sortList.View
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.iv_sortList_thumbnail)
+        ImageView iv_sortList_thumbnail;
+        @BindView(R.id.tv_sortList_brand)
+        TextView tv_sortList_brand;
+        @BindView(R.id.tv_sortList_name)
+        TextView tv_sortList_name;
+        @BindView(R.id.tv_sortList_price)
+        TextView tv_sortList_price;
+        @BindView(R.id.cl_sortList_favorite)
+        ConstraintLayout cl_sortList_favorite;
+        @BindView(R.id.cb_sortList_favorite)
+        CheckBox cb_sortList_favorite;
+        @BindView(R.id.tv_sortList_favorite)
+        TextView tv_sortList_favorite;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

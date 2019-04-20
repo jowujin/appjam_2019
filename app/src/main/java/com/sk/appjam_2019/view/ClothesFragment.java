@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.sk.appjam_2019.R;
 import com.sk.appjam_2019.adapter.Adapter_recommendedProduct;
+import com.sk.appjam_2019.adapter.Adapter_sortList;
 import com.sk.appjam_2019.model.Product;
 
 import butterknife.BindView;
@@ -20,8 +22,11 @@ import butterknife.ButterKnife;
 public class ClothesFragment extends Fragment {
     @BindView(R.id.rv_clothes_recommendedProduct)
     RecyclerView rv_clothes_recommendedProduct;
+    @BindView(R.id.rv_main_grid)
+    RecyclerView rv_main_grid;
 
     Adapter_recommendedProduct adapter_recommendedProduct;
+    Adapter_sortList adapter_sortList;
 
     public ClothesFragment() {
     }
@@ -50,6 +55,7 @@ public class ClothesFragment extends Fragment {
     private void initView() {
 
         initRecommendedProduct();
+        initSortList();
     }
 
     private void initRecommendedProduct() {
@@ -58,5 +64,13 @@ public class ClothesFragment extends Fragment {
         rv_clothes_recommendedProduct.setHasFixedSize(true);
         rv_clothes_recommendedProduct.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rv_clothes_recommendedProduct.setAdapter(adapter_recommendedProduct);
+    }
+
+    private void initSortList() {
+        adapter_sortList = new Adapter_sortList();
+
+        rv_main_grid.setHasFixedSize(true);
+        rv_main_grid.setLayoutManager(new GridLayoutManager(getContext(), 3, LinearLayoutManager.VERTICAL, false));
+        rv_main_grid.setAdapter(adapter_sortList);
     }
 }
