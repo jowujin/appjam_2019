@@ -9,4 +9,8 @@
 
     <color name="auth_textview_focus">#ff3b70</color>
     <color name="auth_textview_unfocus">#696969</color>
+
+    <color name="clothes_recommendedProduct_brand">#cbcbcb</color>
+    <color name="clothes_recommendedProduct_name">#696969</color>
+    <color name="clothes_recommendedProduct_price">#454545</color>
 </resources>

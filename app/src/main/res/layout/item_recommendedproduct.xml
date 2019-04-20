@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingEnd="8dp">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/iv_recommendedProduct_thumbnail"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:elevation="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_recommendedProduct_brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="8sp"
+        android:textColor="@color/clothes_recommendedProduct_brand"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/product_sans_regular"/>
+
+    <TextView
+        android:id="@+id/tv_recommendedProduct_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="8sp"
+        android:textColor="@color/clothes_recommendedProduct_name"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/product_sans_regular"/>
+
+    <TextView
+        android:id="@+id/tv_recommendedProduct_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textColor="@color/clothes_recommendedProduct_price"
+        android:textSize="8sp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/product_sans_regular"/>
+
+</LinearLayout>
